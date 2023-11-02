@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  web:
+    build: ./
+    container_name: "Tuducha"
+    restart : always
+    volumes:
+      - .:/tudu
+    ports:
+      - 8044:8044
+    env_file:
+      - ./.env 
+
+    command: sh -c "python manage.py runserver 0.0.0.0:8044"
